@@ -9,7 +9,7 @@ import { GrAttachment } from "react-icons/gr";
 import {} from "react-icons/fa6";
 const CardItem = () => {
   return (
-    <div className="p-4 border rounded-lg shadow-sm">
+    <div className="p-4 my-2 bg-white">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <img src={User} alt="Client" className="w-5 h-5 rounded-full" />
@@ -49,7 +49,7 @@ const CardItem = () => {
           15
         </div>
         <div className="flex items-center justify-center text-sm">
-          <span className="mr-1">
+          <span className="mr-1 cursor-pointer">
             <GrAttachment />
           </span>
           15
