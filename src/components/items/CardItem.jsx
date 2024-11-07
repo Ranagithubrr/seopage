@@ -7,14 +7,14 @@ import {
 } from "react-icons/fa6";
 import { GrAttachment } from "react-icons/gr";
 import {} from "react-icons/fa6";
-const CardItem = () => {
+const CardItem = ({ data, uploadfileHandle }) => {
   return (
     <div className="p-4 my-2 bg-white">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <img src={User} alt="Client" className="w-5 h-5 rounded-full" />
           <div>
-            <p className="font-semibold text-sm">Client Name</p>
+            <p className="font-semibold text-sm">{data?.clientName}</p>
           </div>
         </div>
         <div className="flex items-center space-x-1">
@@ -49,10 +49,13 @@ const CardItem = () => {
           15
         </div>
         <div className="flex items-center justify-center text-sm">
-          <span className="mr-1 cursor-pointer">
+          <span
+            className="mr-1 cursor-pointer"
+            onClick={() => uploadfileHandle(data)}
+          >
             <GrAttachment />
           </span>
-          15
+          {data?.files.length}
         </div>
         <div className="flex items-center justify-center text-sm">
           <span className="mr-1">
