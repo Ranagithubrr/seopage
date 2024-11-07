@@ -6,7 +6,6 @@ import {
   FaClipboardList,
 } from "react-icons/fa6";
 import { GrAttachment } from "react-icons/gr";
-import {} from "react-icons/fa6";
 const CardItem = ({ data, uploadfileHandle }) => {
   return (
     <div className="p-4 my-2 bg-white">
