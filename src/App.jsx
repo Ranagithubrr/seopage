@@ -22,17 +22,24 @@ function App() {
   };
   const FetchData = async () => {
     setLoading(true);
-    const response = await axios.get(
-      "https://seo-page-backend.onrender.com/todos"
-    );
-    const resdata = await response.data;
-    if (resdata) {
-      setData(resdata);
-    } else {
+    try {
+      const response = await axios.get(
+        "https://seo-page-backend.onrender.com/todos"
+      );
+      const resdata = response.data;
+      if (resdata) {
+        setData(resdata);
+      } else {
+        setError(true);
+      }
+    } catch (error) {
+      console.error(error);
       setError(true);
+    } finally {
+      setLoading(false);
     }
-    setLoading(true);
   };
+
   useEffect(() => {
     FetchData();
   }, []);
@@ -123,7 +130,7 @@ function App() {
           Error: Failed to Load Data!
         </div>
       )}
-      {!loading && (
+      {loading && (
         <div className="flex items-center justify-center space-x-2 text-black p-4 rounded-md shadow-md text-lg font-semibold">
           <svg
             className="animate-spin h-5 w-5 text-black"
